@@ -20,7 +20,7 @@ COPY server.py ./
 COPY src/ ./src/
 COPY frontend/ ./frontend/
 COPY materialy/ ./materialy/
-COPY data/.gitkeep ./data/.gitkeep
+RUN mkdir -p ./data
 
 # Serwer wiąże się z 0.0.0.0:8080 (porównaj fly.toml internal_port).
 EXPOSE 8080
