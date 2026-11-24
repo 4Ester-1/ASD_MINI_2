@@ -6,23 +6,12 @@ app = "asd-mini-2"
 [http_service]
   internal_port = 8080
   force_https = true
-  auto_stop_machines = "stop"
+  auto_stop_machines = 'stop'
   auto_start_machines = true
   min_machines_running = 0
+  processes = ['app']
 
-# Domyślne zmienne środowiskowe dla trybu demo.
-#
-# APP_ENABLE_SANDBOX  ("true" | "false")
-#   - "true"  (domyślnie): włączony tryb piaskownicy RAM; scenariusze i demo
-#     + przełącznik Archiwum ↔ Piaskownica w UI.
-#   - "false": wymuszenie trybu archiwum (SQLite); endpointy /api/mode
-#     i /api/load_scenario/* zwracają 403.
-#
-# APP_READ_ONLY ("true" | "false")
-#   - "true": blokada mutacji (add/edit/delete/import → 403); odczyt,
-#     wyszukiwanie, sortowanie i eksport pozostają aktywne.
-[env]
-  HOST = "0.0.0.0"
-  PORT = "8080"
-  APP_ENABLE_SANDBOX = "true"
-  APP_READ_ONLY = "false"
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
