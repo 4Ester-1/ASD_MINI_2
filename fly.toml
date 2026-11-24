@@ -1,26 +1,28 @@
-# fly.toml app configuration file generated for asd-mini-2 on 2026-11-24T10:15:13Z
-#
-# See https://docs.fly.io/reference/configuration for information about how to use this file.
-#
+# Konfiguracja Fly.io dla ASD1-M2-14 (app = "asd-mini-2").
+# Wdrożenie:  fly deploy   (z katalogu zawierającego ten plik + Dockerfile).
 
-app = 'asd-mini-2'
-primary_region = 'arn'
-
-[build]
-  builder = 'paketobuildpacks/builder:base'
-
-[env]
-  PORT = '8080'
+app = "asd-mini-2"
 
 [http_service]
   internal_port = 8080
   force_https = true
-  auto_stop_machines = 'stop'
+  auto_stop_machines = "stop"
   auto_start_machines = true
   min_machines_running = 0
-  processes = ['app']
 
-[[vm]]
-  memory = '1gb'
-  cpu_kind = 'shared'
-  cpus = 1
+# Domyślne zmienne środowiskowe dla trybu demo.
+#
+# APP_ENABLE_SANDBOX  ("true" | "false")
+#   - "true"  (domyślnie): włączony tryb piaskownicy RAM; scenariusze i demo
+#     + przełącznik Archiwum ↔ Piaskownica w UI.
+#   - "false": wymuszenie trybu archiwum (SQLite); endpointy /api/mode
+#     i /api/load_scenario/* zwracają 403.
+#
+# APP_READ_ONLY ("true" | "false")
+#   - "true": blokada mutacji (add/edit/delete/import → 403); odczyt,
+#     wyszukiwanie, sortowanie i eksport pozostają aktywne.
+[env]
+  HOST = "0.0.0.0"
+  PORT = "8080"
+  APP_ENABLE_SANDBOX = "true"
+  APP_READ_ONLY = "false"
