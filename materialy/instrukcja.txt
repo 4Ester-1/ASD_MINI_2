@@ -1,0 +1,23 @@
+Instrukcja obsługi — Archiwum prac i projektów studenckich Filii
+==============================================================
+
+1. Uruchom serwer interfejsu lokalnego:
+       python server.py
+
+2. Otwórz w przeglądarce adres http://127.0.0.1:8000
+
+3. Dostępne funkcje:
+   - listowanie prac i karta szczegółów,
+   - dodawanie / edycja (identyfikator `id` jest niezmienny),
+   - wyszukiwanie (tytuł, autorzy, słowa kluczowe) + filtry AND
+     (rok, przedmiot, typ pracy),
+   - sortowanie (rok malejąco / tytuł rosnąco),
+   - wczytywanie 4 scenariuszy (kontrolny, typowy, graniczny, większy),
+   - eksport i import JSON (import dwuetapowy z potwierdzeniem),
+   - podgląd kroków sortowania „Przed -> Decyzja -> Po".
+
+4. Przy podejrzeniu duplikatu system pokazuje dopasowane rekordy
+   i wymaga jawnego potwierdzenia przed zapisem — nigdy nie usuwa
+   danych automatycznie.
+
+Plik do celów demonstracyjnych (działa w trybie offline).
