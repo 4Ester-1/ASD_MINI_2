@@ -1,16 +1,7 @@
-# fly.toml app configuration file generated for asd-mini-2 on 2026-11-24T10:17:33Z
-#
-# See https://docs.fly.io/reference/configuration for information about how to use this file.
-#
+# Konfiguracja Fly.io dla ASD1-M2-14 (app = "asd-mini-2").
+# Wdrożenie:  fly deploy   (z katalogu zawierającego ten plik + Dockerfile).
 
-app = 'asd-mini-2'
-primary_region = 'arn'
-
-[build]
-  builder = 'paketobuildpacks/builder:base'
-
-[env]
-  PORT = '8080'
+app = "asd-mini-2"
 
 [http_service]
   internal_port = 8080
